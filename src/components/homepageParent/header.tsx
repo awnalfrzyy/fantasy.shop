@@ -1,9 +1,9 @@
 
 import Image from "next/image"
-import { Button } from "./ui/button"
-import AnimatedCounter from "./ui/counter"
-import MarqueeImage from "./ui/spin"
-import Line from "./ui/line"
+import { Button } from "../ui/button"
+import AnimatedCounter from "../ui/counter"
+import MarqueeImage from "../ui/spin"
+import Line from "../ui/line"
 
 
 

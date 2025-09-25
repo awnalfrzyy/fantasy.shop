@@ -1,5 +1,5 @@
-import { Button } from "./ui/button"
-import CardProduct from "./ui/card-product"
+import { Button } from "../ui/button"
+import CardProduct from "../ui/card-product"
 import { products } from "@/data/top-selling"
 
 

@@ -1,9 +1,9 @@
 'use client'
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useState } from "react";
-import CardRating from "./ui/card-rating";
+import CardRating from "../ui/card-rating";
 import { Rating } from "@/data/rating";
 
 

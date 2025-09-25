@@ -1,9 +1,9 @@
-import Header from "@/components/header"
-import Section from "@/components/section"
-import SectionThree from "@/components/section-three"
-import SectionTwo from "@/components/section-two"
+import Header from "@/components/homepageParent/header"
+import Section from "@/components/homepageParent/section"
+import SectionThree from "@/components/homepageParent/section-three"
+import SectionTwo from "@/components/homepageParent/section-two"
 import Line from "@/components/ui/line"
-import SectionFour from "@/components/section-four";
+import SectionFour from "@/components/homepageParent/section-four";
 
 export default function Page() {
     return (

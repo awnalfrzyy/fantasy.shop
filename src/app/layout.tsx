@@ -1,8 +1,9 @@
 import Info from "../components/ui/info";
 import { NavigationMenuDemo } from '../components/ui/navbar';
+import ButtomNav from "@/components/buttomNav";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "@/styles/globals.css";
+import "@/styles/globals.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <div >
           {children}
         </div>
+        <ButtomNav />
       </body>
     </html>
   );

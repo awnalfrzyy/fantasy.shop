@@ -38,7 +38,7 @@ export default function CardProduct({
 
                 {/* Star Rating */}
                 <div className="flex items-center mt-2 space-x-2">
-                    <StarRating rating={rating} />
+                    <StarRating rating={rating} size={14} />
                     <span className="text-sm text-gray-500">{rating}/5</span>
                 </div>
 
