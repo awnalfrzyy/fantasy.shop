@@ -69,7 +69,7 @@ export function NavigationMenuDemo() {
 
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                        <Link href="/about" className="text-base font-medium">
+                                        <Link href="/categori-page" className="text-base font-medium">
                                             On Sale
                                         </Link>
                                     </NavigationMenuLink>

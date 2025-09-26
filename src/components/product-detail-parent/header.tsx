@@ -20,6 +20,15 @@ export default function HeaderProductDetail() {
     };
 
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
+    const [selectedSize, setSelectedSize] = useState<string | null>(null);
+
+    const sizeOptions = [
+        { title: "small" },
+        { title: "Medium" },
+        { title: "Large" },
+        { title: "X Large" },
+
+    ];
 
     const colors = [
         { name: "amber", className: "bg-amber-500" },
@@ -95,12 +104,25 @@ export default function HeaderProductDetail() {
 
                     {/* Choose Size */}
                     <div className="flex flex-col gap-3.5">
-                        <p className="">Choose Size</p>
-                        <div className="flex gap-0.5">
-                            <Button variant='outline' className=" rounded-4xl p-6">Small</Button>
-                            <Button variant='outline' className=" rounded-4xl p-6">Medium</Button>
-                            <Button variant='outline' className=" rounded-4xl p-6">Large</Button>
-                            <Button variant='outline' className=" rounded-4xl p-6">X Large</Button>
+                        <p className="font-medium text-sm">Choose Size</p>
+                        <div className="flex gap-2">
+                            {sizeOptions.map((size) => (
+                                <Button
+                                    key={size.title}
+                                    onClick={() => setSelectedSize(size.title)}
+                                    variant="default"
+                                    className={`rounded-full p-6 flex items-center justify-center 
+              ${selectedSize === size.title
+                                            ? "bg-black text-white"
+                                            : "bg-gray-100 text-black"
+                                        }`}
+                                >
+                                    {size.title}
+                                    {selectedSize === size.title && (
+                                        <Check size={20} className="ml-2" strokeWidth={3} />
+                                    )}
+                                </Button>
+                            ))}
                         </div>
                     </div>
 
