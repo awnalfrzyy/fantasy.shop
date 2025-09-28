@@ -1,4 +1,7 @@
 import Link from "next/link"
+import { notFound } from "next/navigation"
+import { products } from "@/data/product"
+
 
 import {
     Breadcrumb,
@@ -7,15 +10,24 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+
 import HeaderProductDetail from "@/components/product-detail-parent/header"
-import SectionProductDetail from "@/components/product-detail-parent/section"
-import SectionTwoProductDetail from "@/components/product-detail-parent/section-two"
 
 
 
-export default function productsDetail() {
+interface ProductDetailProps {
+    params: { id: string }
+}
+
+export default function ProductDetailPage({ params }: ProductDetailProps) {
+    const product = products.find((p) => p.id === Number(params.id))
+
+    if (!product) {
+        return notFound()
+    }
+
     return (
-        <div>
+        <div className=" h-screen relative">
             <div className="py-8 px-8 pl-18">
                 <Breadcrumb>
                     <BreadcrumbList>
@@ -27,15 +39,17 @@ export default function productsDetail() {
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                             <BreadcrumbLink asChild>
-                                <Link href="/product-detail">Details</Link>
+                                <Link href={`/product/${product.id}`}>{product.title}</Link>
                             </BreadcrumbLink>
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
-            <HeaderProductDetail />
-            <SectionProductDetail />
-            <SectionTwoProductDetail />
+
+            {/* lempar product ke komponen child */}
+            <HeaderProductDetail product={product} />
+
+
         </div>
     )
-};
+}

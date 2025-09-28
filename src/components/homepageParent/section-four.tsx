@@ -10,7 +10,7 @@ import { Rating } from "@/data/rating";
 
 export default function SectionFour() {
 
-    const [index, setIndex] = useState(0)
+    const [, setIndex] = useState(0)
 
     const items = ["Slide 1", "Slide 2", "Slide 3"]
 

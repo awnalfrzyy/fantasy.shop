@@ -8,6 +8,7 @@ interface CardProductProps {
     image: string;
     price: number | string;
     rating: number;
+    style?: string;
 
 }
 
@@ -16,9 +17,10 @@ export default function CardProduct({
     image,
     price,
     rating,
+
 }: CardProductProps) {
     return (
-        <div className="bg-transparent rounded-lg overflow-hidden">
+        <div className="bg-transparent rounded-lg overflow-hidden cursor-pointer">
             {/* Image */}
             <div className="w-[275px] h-[268px] bg-gray-100 flex items-center justify-center overflow-hidden rounded-2xl">
                 <Image
@@ -31,7 +33,7 @@ export default function CardProduct({
             </div>
 
             {/* Content */}
-            <CardContent className="p-4 ">
+            <CardContent className="p-4  ">
                 <CardTitle className="text-lg font-semibold line-clamp-2">
                     {title}
                 </CardTitle>

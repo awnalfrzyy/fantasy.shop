@@ -1,53 +1,56 @@
 'use client'
 
-import Line from '../ui/line';
-import { Button } from '../ui/button';
-import StarRating from '../ui/star-rating';
-import Image from 'next/image';
-import { Plus, Minus } from 'lucide-react';
-import { useState } from 'react';
-import { Check } from 'lucide-react';
+import Line from '../ui/line'
+import { Button } from '../ui/button'
+import StarRating from '../ui/star-rating'
+import Image from 'next/image'
+import { Plus, Minus, Check } from 'lucide-react'
+import { useState } from 'react'
 
-export default function HeaderProductDetail() {
-    const [quantity, setQuantity] = useState(0);
+interface HeaderProductDetailProps {
+    product: {
+        id: number
+        title: string
+        image: string
+        price: number
+        rating: number
+        type?: string
+    }
+}
 
-    const handleMinus = () => {
-        setQuantity((prev) => (prev > 0 ? prev - 1 : 0));
-    };
+export default function HeaderProductDetail({ product }: HeaderProductDetailProps) {
+    const [quantity, setQuantity] = useState(0)
+    const [selectedColor, setSelectedColor] = useState<string | null>(null)
+    const [selectedSize, setSelectedSize] = useState<string | null>(null)
 
-    const handlePlus = () => {
-        setQuantity((prev) => prev + 1);
-    };
 
-    const [selectedColor, setSelectedColor] = useState<string | null>(null);
-    const [selectedSize, setSelectedSize] = useState<string | null>(null);
+    const handleMinus = () => setQuantity((prev) => (prev > 0 ? prev - 1 : 0))
+    const handlePlus = () => setQuantity((prev) => prev + 1)
 
     const sizeOptions = [
-        { title: "small" },
-        { title: "Medium" },
-        { title: "Large" },
-        { title: "X Large" },
-
-    ];
+        { title: 'Small' },
+        { title: 'Medium' },
+        { title: 'Large' },
+        { title: 'X Large' },
+    ]
 
     const colors = [
-        { name: "amber", className: "bg-amber-500" },
-        { name: "red", className: "bg-red-500" },
-        { name: "blue", className: "bg-blue-500" },
-    ];
-
+        { name: 'amber', className: 'bg-amber-500' },
+        { name: 'red', className: 'bg-red-500' },
+        { name: 'blue', className: 'bg-blue-500' },
+    ]
 
     return (
         <div>
-            <div className="h-screen flex pr-18 pl-18 gap-10 ">
+            <div className="h-screen flex pr-18 pl-18 gap-10 py-10 ">
                 {/* Left Side - Thumbnail + Main Image */}
                 <section className="flex gap-3.5">
                     <div className="flex flex-col gap-3.5">
                         {[1, 2, 3].map((i) => (
                             <div key={i} className="h-[158px] w-[152px] bg-transparent">
                                 <Image
-                                    src="/asset/image-1.png"
-                                    alt="product"
+                                    src={product.image}
+                                    alt={product.title}
                                     width={444}
                                     height={530}
                                     className="bg-neutral-400 object-cover w-full h-full"
@@ -57,8 +60,8 @@ export default function HeaderProductDetail() {
                     </div>
                     <div className="bg-transparent w-[430px] h-[505px]">
                         <Image
-                            src="/asset/image-1.png"
-                            alt="product"
+                            src={product.image}
+                            alt={product.title}
                             width={444}
                             height={530}
                             className="bg-neutral-400 object-cover w-full h-full"
@@ -68,24 +71,23 @@ export default function HeaderProductDetail() {
 
                 {/* Right Side - Detail */}
                 <section className="flex flex-col gap-4.5">
-                    <h1 className="font-black text-4xl">
-                        One Life Graphic T-shirt
+                    <h1 className="font-black text-4xl">{product.title}</h1>
+                    <StarRating rating={product.rating} />
+                    <h1 className="text-2xl font-black">
+                        Rp {product.price.toLocaleString('id-ID')}
                     </h1>
-                    <StarRating rating={5} />
-                    <h1 className="text-2xl font-black">00000</h1>
                     <p className="font-medium text-sm">
-                        This graphic t-shirt which is perfect for any occasion.
-                        Crafted from a soft and breathable fabric, it offers superior comfort and style.
+                        {product.type
+                            ? `Kategori: ${product.type}. Produk ini dibuat dengan kualitas terbaik untuk kebutuhan kamu.`
+                            : `Produk ini dibuat dengan kualitas terbaik untuk kebutuhan kamu.`}
                     </p>
 
-                    {/* Line */}
                     <Line thickness={2} variant="horizontal" length={560} color="#00000021" />
 
                     {/* Select Color */}
                     <div className="flex flex-col gap-2">
                         <p className="font-medium text-sm">Select Color</p>
                         <div className="flex flex-row gap-3">
-                            {/* Amber Circle */}
                             {colors.map((color) => (
                                 <div
                                     key={color.name}
@@ -113,8 +115,8 @@ export default function HeaderProductDetail() {
                                     variant="default"
                                     className={`rounded-full p-6 flex items-center justify-center 
               ${selectedSize === size.title
-                                            ? "bg-black text-white"
-                                            : "bg-gray-100 text-black"
+                                            ? 'bg-black text-white'
+                                            : 'bg-gray-100 text-black'
                                         }`}
                                 >
                                     {size.title}
@@ -139,12 +141,10 @@ export default function HeaderProductDetail() {
                             >
                                 <Minus size={20} />
                             </Button>
-                            <span className="text-lg font-medium w-6 text-center">{quantity}</span>
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                onClick={handlePlus}
-                            >
+                            <span className="text-lg font-medium w-6 text-center">
+                                {quantity}
+                            </span>
+                            <Button variant="ghost" size="icon" onClick={handlePlus}>
                                 <Plus size={20} />
                             </Button>
                         </div>
@@ -155,5 +155,5 @@ export default function HeaderProductDetail() {
                 </section>
             </div>
         </div>
-    );
+    )
 }
