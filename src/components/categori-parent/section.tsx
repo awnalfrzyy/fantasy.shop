@@ -14,12 +14,10 @@ import {
 export default function SectionCategori() {
     return (
         <div className="flex w-full relative">
-            {/* Sidebar kiri */}
-            <div className="w-80 justify-center flex-shrink-0 h-full overflow-y-auto border-r border-gray-200 py-5 px-3">
+            <div className="w-80 justify-center flex-shrink-0 h-full overflow-y-auto py-5 px-3">
                 <SidebarFilter />
             </div>
 
-            {/* Konten kanan scrollable */}
             <div className="flex-1 h-full overflow-y-auto p-5 flex flex-col">
                 <div className="grid grid-cols-3 gap-6 mb-10">
                     {products.map((product) => (

@@ -1,13 +1,17 @@
+"use client"
+
 
 import Image from "next/image"
 import { Button } from "../ui/button"
 import AnimatedCounter from "../ui/counter"
 import MarqueeImage from "../ui/spin"
 import Line from "../ui/line"
+import { useRouter } from "next/navigation"
 
 
 
 export default function Header() {
+    const router = useRouter();
 
     const stats = [
         {
@@ -36,7 +40,8 @@ export default function Header() {
                         Browse through our diverse range of meticulously crafted garments,
                         designed to bring out your individuality and cater to your sense of style.
                     </p>
-                    <Button variant="default" className="rounded-4xl pl-20 pr-20 py-7 pb-7 text-[18px] mt-4.5">
+                    <Button variant="default" className="rounded-4xl pl-20 pr-20 py-7 pb-7 text-[18px] mt-4.5"
+                        onClick={() => router.push("/categori-page")}>
                         Shop now
                     </Button>
                     <div className=" mt-5">
@@ -52,9 +57,8 @@ export default function Header() {
                                         <p className="text-[12px]">{stat.label}</p>
                                     </section>
 
-                                    {/* Tambahin line kecuali di item terakhir */}
                                     {i < stats.length - 1 && (
-                                        <Line variant="vertical" length={60} color="black" thickness={2} />
+                                        <Line variant="vertical" length={60} thickness={1} />
                                     )}
                                 </div>
                             ))}
@@ -70,7 +74,6 @@ export default function Header() {
                         priority
                     />
                     <div >
-                        {/* Gambar kiri atas */}
                         <Image
                             src="/asset/Vector.png"
                             alt="Hero Left"
@@ -80,7 +83,6 @@ export default function Header() {
                             className="absolute top-50 left-280"
                         />
 
-                        {/* Gambar kanan bawah */}
                         <div>
                             <Image
                                 src="/asset/Vector.png"
