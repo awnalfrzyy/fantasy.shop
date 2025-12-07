@@ -1,4 +1,4 @@
-import Line from "./line";
+import Line from "./ui/line";
 
 export default function Footer() {
     return (

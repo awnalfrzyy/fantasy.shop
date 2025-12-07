@@ -1,15 +1,7 @@
 import { Star } from "lucide-react";
+import { StarProps } from './star-rating-props'
 
-
-interface StarRatingProps {
-    rating: number;
-    max?: number;
-    size?: number;
-
-}
-
-export default function StarRating({ rating, max = 5, size }: StarRatingProps) {
-
+export default function StarRating({ rating, max = 5, size }: StarProps) {
     return (
         <div className="flex space-x-1">
             {Array.from({ length: max }).map((_, index) => (

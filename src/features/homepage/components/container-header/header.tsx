@@ -1,10 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "../ui/button"
-import AnimatedCounter from "../counter"
+import { Button } from "@/components/ui/button"
+import AnimatedCounter from "../counter/counter"
 // import MarqueeImage from "../ui/spin"
-import Line from "../ui/line"
+import Line from "@/components/ui/line"
 import { useRouter } from "next/navigation"
 
 

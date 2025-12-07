@@ -1,26 +1,15 @@
-// components/CardProduct.tsx
-import { CardContent, CardTitle, } from "./card";
-import StarRating from "./star-rating";
 import Image from "next/image";
-
-interface CardProductProps {
-    title: string;
-    image: string;
-    price: number | string;
-    rating: number;
-    style?: string;
-
-}
+import { CardContent, CardTitle, Card } from "../../../../components/ui/card";
+import StarRating from '../rating/star-rating'
+import { CardProductProps } from "./card-product-props";
 
 export default function CardProduct({
     title,
     image,
     price,
-    rating,
-
-}: CardProductProps) {
+    rating, }: CardProductProps) {
     return (
-        <div className="bg-transparent rounded-lg overflow-hidden cursor-pointer">
+        <Card className="bg-transparent rounded-lg overflow-hidden cursor-pointer border-none shadow-none">
             {/* Image */}
             <div className="w-[275px] h-[268px] bg-gray-100 flex items-center justify-center overflow-hidden rounded-2xl">
                 <Image
@@ -32,13 +21,11 @@ export default function CardProduct({
                 />
             </div>
 
-            {/* Content */}
             <CardContent className="p-4  ">
                 <CardTitle className="text-lg font-semibold line-clamp-2">
                     {title}
                 </CardTitle>
 
-                {/* Star Rating */}
                 <div className="flex items-center mt-2 space-x-2">
                     <StarRating rating={rating} size={14} />
                     <span className="text-sm text-gray-500">{rating}/5</span>
@@ -49,9 +36,7 @@ export default function CardProduct({
                     <span className="text-sm align-top mr-1">Rp.</span>
                     {price}
                 </p>
-
-
             </CardContent>
-        </div>
+        </Card>
     );
 }

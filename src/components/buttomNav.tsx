@@ -1,4 +1,4 @@
-import Footer from "./ui/footer"
+import Footer from "./footer"
 import { Button } from "./ui/button"
 
 

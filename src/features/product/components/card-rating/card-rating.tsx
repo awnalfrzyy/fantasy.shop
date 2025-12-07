@@ -1,21 +1,13 @@
-import { Card, CardTitle, CardDescription } from "../ui/card";
-import StarRating from "./star-rating";
+import { Card, CardTitle, CardDescription } from "@/components/ui/card";
+import StarRating from "../rating/star-rating";
 import { BadgeCheck } from "lucide-react";
-
-interface CardRatingProps {
-    name: string;
-    comment: string | number;
-    rating: number;
-}
-
-
+import { CardRatingProps } from "./card-rating-props";
 
 export default function CardRating({
     name,
     comment,
     rating
 }: CardRatingProps) {
-
     return (
         <Card className="relative p-4">
             <StarRating rating={rating} />
