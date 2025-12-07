@@ -2,24 +2,43 @@
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CardRating from "../ui/card-rating";
-import { Rating } from "@/data/rating";
-
-
 
 export default function SectionFour() {
 
-    const [, setIndex] = useState(0)
+    const [index, setIndex] = useState(0);
+    const [ratings, setRatings] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
-    const items = ["Slide 1", "Slide 2", "Slide 3"]
+    useEffect(() => {
+        const fetchRatings = async () => {
+            try {
+                setLoading(true);
+                const res = await fetch('http://localhost:4000/products');
+                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                const data = await res.json();
+                console.log('Fetched ratings data:', data);
+                setRatings([]);
+                setError(null);
+            } catch (err) {
+                console.error('Error fetching ratings:', err);
+                setError(err instanceof Error ? err.message : 'An error occurred');
+                setRatings([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchRatings();
+    }, []);
 
     const handlePrev = () => {
-        setIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1))
+        setIndex((prev) => (prev === 0 ? (ratings.length - 1) : prev - 1))
     }
 
     const handleNext = () => {
-        setIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1))
+        setIndex((prev) => (prev === ratings.length - 1 ? 0 : prev + 1))
     }
 
 
@@ -45,16 +64,18 @@ export default function SectionFour() {
 
 
             </div>
+            {loading && <p className="text-center">Loading...</p>}
+            {error && <p className="text-center text-red-500">{error}</p>}
             <div className="py-20 flex flex-col gap-4 w-full overflow-hidden">
                 <div className="flex gap-6 justify-start  ">
-                    {Rating.map((rating) => (
+                    {/* {ratings.map((rating) => (
                         <CardRating
                             key={rating.id}
                             rating={rating.rating}
                             name={rating.name}
                             comment={rating.comment}
                         />
-                    ))}
+                    ))} */}
                 </div>
             </div>
         </div>

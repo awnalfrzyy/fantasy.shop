@@ -4,7 +4,7 @@
 import Image from "next/image"
 import { Button } from "../ui/button"
 import AnimatedCounter from "../ui/counter"
-import MarqueeImage from "../ui/spin"
+// import MarqueeImage from "../ui/spin"
 import Line from "../ui/line"
 import { useRouter } from "next/navigation"
 
@@ -96,7 +96,7 @@ export default function Header() {
                     </div>
                 </div>
             </div >
-            <MarqueeImage />
+            {/* <MarqueeImage /> */}
         </>
     )
 };
