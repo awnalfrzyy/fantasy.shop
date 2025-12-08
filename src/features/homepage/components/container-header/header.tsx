@@ -3,14 +3,40 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import AnimatedCounter from "../counter/counter"
-// import MarqueeImage from "../ui/spin"
 import Line from "@/components/ui/line"
 import { useRouter } from "next/navigation"
-
-
+import { useState, useEffect } from "react"
 
 export default function Header() {
     const router = useRouter();
+    const [files, setFiles] = useState<string[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchFiles = async () => {
+            try {
+                const res = await fetch("http://localhost:4000/asset/files", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        paths: [
+                            "/image/hero.png",
+                            "/vector/Vector.png"
+                        ]
+                    }),
+                });
+
+                const data = await res.json();
+                setFiles(data);
+            } catch (error) {
+                console.error("Failed to fetch images:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchFiles();
+    }, []);
 
     const stats = [
         {
@@ -65,37 +91,44 @@ export default function Header() {
                     </div>
                 </div >
                 <div className="pl-16 flex">
-                    <Image
-                        src="/asset/hero.png"
-                        alt="Hero section"
-                        width={600}
-                        height={400}
-                        priority
-                    />
-                    <div >
-                        <Image
-                            src="/asset/Vector.png"
-                            alt="Hero Left"
-                            width={104}
-                            height={104}
-                            priority
-                            className="absolute top-50 left-280"
-                        />
-
-                        <div>
-                            <Image
-                                src="/asset/Vector.png"
-                                alt="Hero Right"
-                                width={54}
-                                height={54}
-                                priority
-                                className="absolute bottom-40 right-150 "
-                            />
+                    {loading ? (
+                        <div className="w-full h-96 bg-gray-200 rounded flex items-center justify-center">
+                            Loading images...
                         </div>
-                    </div>
+                    ) : (
+                        <>
+                            <Image
+                                src={files[0] || "/hero.png"}
+                                alt="Hero section"
+                                width={600}
+                                height={400}
+                                priority
+                            />
+                            <div>
+                                <Image
+                                    src={files[1] || "/placeholder.png"}
+                                    alt="Hero Left"
+                                    width={104}
+                                    height={104}
+                                    priority
+                                    className="absolute top-50 left-280"
+                                />
+
+                                <div>
+                                    <Image
+                                        src={files[1] || "/placeholder.png"}
+                                        alt="Hero Right"
+                                        width={54}
+                                        height={54}
+                                        priority
+                                        className="absolute bottom-40 right-150"
+                                    />
+                                </div>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div >
-            {/* <MarqueeImage /> */}
         </>
     )
 };
