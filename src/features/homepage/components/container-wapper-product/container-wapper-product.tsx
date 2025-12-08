@@ -5,9 +5,8 @@ import { ContainerWrapperProductProps, ProductCardData } from './container-wappe
 import { useEffect, useState } from 'react'
 import CardProductSkeleton from '@/features/product/components/card-product/card-product-skeleton'
 import { useRouter } from 'next/navigation'
-import DataNodisplay from '@/features/eror-handing/data-nodisplay'
 
-export default function ContainerWrapperProduct({ title, getData, products, columnsCount, limit }: ContainerWrapperProductProps) {
+export default function ContainerWrapperProduct({ title, getData, products, columnsCount, limit, className }: ContainerWrapperProductProps) {
     // Ensure mobile (default) shows 2 columns. Adjust md/lg based on requested columnsCount.
     const gridClasses = (() => {
         const cols = columnsCount ?? 4
@@ -64,8 +63,8 @@ export default function ContainerWrapperProduct({ title, getData, products, colu
     }, [getData, products])
 
     return (
-        <div className="w-full my-10">
-            <h2 className="text-2xl font-bold mb-6">{title}</h2>
+        <div className={`w-full px-20 ${className}`}>
+            <h2 className="text-4xl font-bold mb-6 text-center">{title}</h2>
             {loading ? (
                 <div className={`grid gap-6 ${gridClasses}`}>
                     {Array.from({ length: limit ?? 4 }).map((_, i) => (

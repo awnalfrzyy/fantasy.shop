@@ -27,8 +27,8 @@ export default function ProductDetailPage({ params }: ProductDetailProps) {
     }
 
     return (
-        <div className=" h-screen relative">
-            <div className="py-8 px-8 pl-18">
+        <div className="h-screen relative">
+            <div className="py-8 px-28">
                 <Breadcrumb>
                     <BreadcrumbList>
                         <BreadcrumbItem>

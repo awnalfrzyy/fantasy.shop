@@ -16,4 +16,5 @@ export interface ContainerWrapperProductProps {
     columnsCount?: number
     /** Optional limit for number of products to display. Defaults to showing all. */
     limit?: number
+    className?: string
 }
