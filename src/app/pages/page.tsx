@@ -4,6 +4,7 @@ import Header from "@/features/homepage/components/container-header/header";
 import ContainerWrapperProduct from "@/features/homepage/components/container-wapper-product/container-wapper-product";
 import ContainerCategory from "@/features/homepage/components/container-category/container-category";
 import SpinHorizontal from "@/features/homepage/components/brands-spin/spin-horizontal";
+import ContainerRating from "@/features/homepage/components/container-rating/container-rating";
 import { Button } from "@/components/ui/button";
 
 // Fungsi util untuk fetch products dan mapping
@@ -39,10 +40,10 @@ const ProductSection = ({ title }: { title: string }) => (
 );
 
 const tiles = [
-    { src: '/image 11.png', title: 'Women', colSpan: 1, rowSpan: 1 },
-    { src: '/image 12.png', title: 'New Arrivals', colSpan: 2, rowSpan: 1 },
-    { src: '/image 13.png', title: 'Collections', colSpan: 2, rowSpan: 1 },
-    { src: '/image 14.png', title: 'Accessories', colSpan: 1, rowSpan: 1 },
+    { src: '/image 11.png', title: 'Casual', colSpan: 1, rowSpan: 1 },
+    { src: '/image 13.png', title: 'Formal', colSpan: 2, rowSpan: 1 },
+    { src: '/image 12.png', title: 'Party', colSpan: 2, rowSpan: 1 },
+    { src: '/image 14.png', title: 'Sport', colSpan: 1, rowSpan: 1 },
 ]
 
 const DataSpin = [
@@ -82,6 +83,17 @@ export default function BerandaPage() {
                     <ContainerCategory tiles={tiles} gridHeight="h-[600px]" />
                 </section>
             </div>
+            <div className="relative mb-20">
+
+                <section className="px-20 ">
+                    <ContainerRating />
+                </section>
+                <div className="mt-10">
+                    <div className="absolute bottom-0 left-0 w-full h-52 bg-white blur-2xl  pointer-events-none" />
+                </div>
+
+            </div>
+
         </div>
     );
 }

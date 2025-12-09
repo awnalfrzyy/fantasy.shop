@@ -1,5 +1,5 @@
 export interface CardRatingProps {
     name: string;
-    comment: string | number;
+    comment: string;
     rating: number;
 }

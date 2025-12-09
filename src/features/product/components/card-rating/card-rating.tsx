@@ -9,13 +9,15 @@ export default function CardRating({
     rating
 }: CardRatingProps) {
     return (
-        <Card className="relative p-4">
-            <StarRating rating={rating} />
-            <CardTitle className="flex gap-2.5 items-center">
-                {name}
-                <BadgeCheck size={24} fill="#00B109FF" color="#ffffff" />
-            </CardTitle>
-            <CardDescription className="w-80">
+        <Card className="relative p-4 border-none">
+            <section className="flex flex-col gap-2">
+                <CardTitle className="flex gap-2.5 items-center">
+                    {name}
+                    <BadgeCheck size={24} fill="#00B109FF" color="#ffffff" />
+                </CardTitle>
+                <StarRating size={18} rating={rating} />
+            </section>
+            <CardDescription className="w-80 h-32 overflow-scroll">
                 {comment}
             </CardDescription>
         </Card>
