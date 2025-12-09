@@ -29,7 +29,7 @@ export default function SpinHorizontal({
 
     return (
         <div
-            className="overflow-hidden w-full py-4"
+            className="overflow-hidden w-full py-10"
             style={{ backgroundColor }}
         >
             <motion.div

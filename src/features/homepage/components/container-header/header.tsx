@@ -92,13 +92,13 @@ export default function Header() {
                 </div >
                 <div className="pl-16 flex">
                     {loading ? (
-                        <div className="w-full h-96 bg-gray-200 rounded flex items-center justify-center">
+                        <div className="w-full h-full bg-gray-200 rounded flex items-center justify-center">
                             Loading images...
                         </div>
                     ) : (
                         <>
                             <Image
-                                src={files[0] || "/hero.png"}
+                                src={"/hero.png"}
                                 alt="Hero section"
                                 width={600}
                                 height={400}
@@ -106,7 +106,7 @@ export default function Header() {
                             />
                             <div>
                                 <Image
-                                    src={files[1] || "/placeholder.png"}
+                                    src={"/Vector.png"}
                                     alt="Hero Left"
                                     width={104}
                                     height={104}
@@ -116,7 +116,7 @@ export default function Header() {
 
                                 <div>
                                     <Image
-                                        src={files[1] || "/placeholder.png"}
+                                        src={"/Vector.png"}
                                         alt="Hero Right"
                                         width={54}
                                         height={54}
