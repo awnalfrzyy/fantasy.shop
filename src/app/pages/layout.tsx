@@ -1,15 +1,15 @@
 
-import { NavigationMenuDemo } from "@/components/navbar"
 import Info from "@/components/info"
-import Footer from "@/components/footer"
+import Nav from "@/components/nav"
+import ButtomNav from "@/components/buttomNav"
 
 export default function PagesLayout({ children }: { children: React.ReactNode }) {
     return (
         <div className="min-h-screen flex flex-col">
             <Info />
-            <NavigationMenuDemo />
+            <Nav />
             <main className="flex-1 ">{children}</main>
-            <Footer />
+            <ButtomNav />
         </div>
     )
 }

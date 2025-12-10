@@ -64,7 +64,9 @@ export default function ContainerWrapperProduct({ title, getData, products, colu
 
     return (
         <div className={`w-full px-20 ${className}`}>
-            <h2 className="text-4xl font-bold mb-6 text-center">{title}</h2>
+            <h2
+                className="text-4xl mb-6 text-center"
+                style={{ fontFamily: "Integral CF, sans-serif", fontWeight: "900" }}>{title}</h2>
             {loading ? (
                 <div className={`grid gap-6 ${gridClasses}`}>
                     {Array.from({ length: limit ?? 4 }).map((_, i) => (

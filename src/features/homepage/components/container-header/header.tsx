@@ -58,7 +58,9 @@ export default function Header() {
         <>
             <div className="h-screen bg-[#EEECED] flex pl-20 pr-20">
                 <div className="w-[600] items-start justify-start py-20 flex flex-col gap-4">
-                    <h1 className=" text-6xl" style={{ fontFamily: "Integral CF, sans-serif", fontWeight: "900" }}>
+                    <h1
+                        className=" text-6xl"
+                        style={{ fontFamily: "Integral CF, sans-serif", fontWeight: "900" }}>
                         FIND CLOTHES THAT MATCHES YOUR STYLE
                     </h1>
                     <p className="font-light text-gray-700 text-sm">
@@ -101,7 +103,7 @@ export default function Header() {
                                 src={"/hero.png"}
                                 alt="Hero section"
                                 width={600}
-                                height={400}
+                                height={380}
                                 priority
                             />
                             <div>

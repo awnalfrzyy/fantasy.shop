@@ -83,18 +83,19 @@ export default function BerandaPage() {
 
             <div className="px-20 mb-10" id="Container-category">
                 <section className="bg-[#F0F0F0] pt-10 pb-10 px-10 rounded-3xl">
-                    <h1 className="text-4xl font-integral mb-10 text-center">SHOP BY CATEGORY</h1>
+                    <h1
+                        className="text-4xl mb-10 text-center"
+                        style={{ fontFamily: "Integral CF, sans-serif", fontWeight: "900" }}>SHOP BY CATEGORY</h1>
                     <ContainerCategory tiles={tiles} gridHeight="h-[460px]" />
                 </section>
             </div>
-            <div className="relative mb-20" id="Container-rating">
+            <div className="relative mb-[-50]" id="Container-rating">
                 <section className="px-20 ">
                     <ContainerRating />
                 </section>
                 <div className="mt-10">
                     <div className="absolute bottom-0 left-0 w-full h-52 bg-white blur-2xl  pointer-events-none" />
                 </div>
-
             </div>
 
         </div>
