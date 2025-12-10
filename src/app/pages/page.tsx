@@ -6,6 +6,7 @@ import ContainerCategory from "@/features/homepage/components/container-category
 import SpinHorizontal from "@/features/homepage/components/brands-spin/spin-horizontal";
 import ContainerRating from "@/features/homepage/components/container-rating/container-rating";
 import { Button } from "@/components/ui/button";
+import { AutoScroll } from "@/components/auto-scroll";
 
 // Fungsi util untuk fetch products dan mapping
 const fetchProducts = async () => {
@@ -57,8 +58,11 @@ const DataSpin = [
 export default function BerandaPage() {
     return (
         <div className="h-full flex flex-col gap-20">
+            {/* <AutoScroll targetId="header-section" className="fixed bottom-6 right-6 z-50" /> */}
             <div>
-                <Header />
+                <section id="header-section">
+                    <Header />
+                </section>
                 <SpinHorizontal
                     backgroundColor="black"
                     duplicate
@@ -69,22 +73,21 @@ export default function BerandaPage() {
                     getData={() => Promise.resolve(DataSpin)} />
             </div>
 
-            <section>
+            <section id="New-arrivals">
                 <ProductSection title="NEW ARRIVALS" />
             </section>
 
-            <section>
+            <section id="Top-selling">
                 <ProductSection title="TOP SELLING" />
             </section>
 
-            <div className="px-20 mb-10">
+            <div className="px-20 mb-10" id="Container-category">
                 <section className="bg-[#F0F0F0] pt-10 pb-10 px-10 rounded-3xl">
-                    <h1 className="text-4xl font-black mb-10 text-center">SHOP BY CATEGORY</h1>
-                    <ContainerCategory tiles={tiles} gridHeight="h-[600px]" />
+                    <h1 className="text-4xl font-integral mb-10 text-center">SHOP BY CATEGORY</h1>
+                    <ContainerCategory tiles={tiles} gridHeight="h-[460px]" />
                 </section>
             </div>
-            <div className="relative mb-20">
-
+            <div className="relative mb-20" id="Container-rating">
                 <section className="px-20 ">
                     <ContainerRating />
                 </section>

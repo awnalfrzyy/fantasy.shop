@@ -2,9 +2,9 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Input } from "./input"
+import { Input } from "./ui/input"
 import { Search, CircleUserRound, ShoppingCart } from "lucide-react"
-import { Button } from "./button"
+import { Button } from "./ui/button"
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -110,16 +110,16 @@ export function NavigationMenuDemo() {
                             <Button
                                 variant="ghost"
                                 size="lg"
-                                className="rounded-full p-3 hover:bg-gray-100"
+                                className="rounded-full  hover:bg-gray-100"
                             >
-                                <ShoppingCart className="h-6 w-6" />
+                                <ShoppingCart size={24} />
                             </Button>
                             <Button
                                 variant="ghost"
                                 size="lg"
                                 className="rounded-full p-3 hover:bg-gray-100"
                             >
-                                <CircleUserRound className="h-6 w-6" />
+                                <CircleUserRound size={24} />
                             </Button>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
-import Info from "../components/ui/info";
-import { NavigationMenuDemo } from '../components/ui/navbar';
+import Info from "../components/info";
+import { NavigationMenuDemo } from '../components/navbar';
 import ButtomNav from "@/components/buttomNav";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";

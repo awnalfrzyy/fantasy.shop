@@ -44,7 +44,7 @@ export default function Header() {
             label: "International Brands",
         },
         {
-            to: 2000,
+            to: 800,
             label: "High-Quality Products",
         },
         {
@@ -57,22 +57,22 @@ export default function Header() {
 
         <>
             <div className="h-screen bg-[#EEECED] flex pl-20 pr-20">
-                <div className="w-[500] items-start justify-start py-20 flex flex-col gap-4">
-                    <h1 className="font-black text-6xl">
+                <div className="w-[600] items-start justify-start py-20 flex flex-col gap-4">
+                    <h1 className=" text-6xl" style={{ fontFamily: "Integral CF, sans-serif", fontWeight: "900" }}>
                         FIND CLOTHES THAT MATCHES YOUR STYLE
                     </h1>
-                    <p className="font-light text-gray-700 text-[14px]">
+                    <p className="font-light text-gray-700 text-sm">
                         Browse through our diverse range of meticulously crafted garments,
                         designed to bring out your individuality and cater to your sense of style.
                     </p>
-                    <Button variant="default" className="rounded-4xl pl-20 pr-20 py-7 pb-7 text-[18px] mt-4.5"
+                    <Button variant="default" className="rounded-full py-5 px-20 text-[18px] mt-4.5"
                         onClick={() => router.push("/categori-page")}>
                         Shop now
                     </Button>
                     <div className=" mt-5">
-                        <div className="flex gap-4 items-start ">
+                        <div className="flex gap-3 items-start ">
                             {stats.map((stat, i) => (
-                                <div key={i} className="flex items-start p-2.5">
+                                <div key={i} className="flex items-start p-1">
                                     <section className="w-36 text-start">
                                         <AnimatedCounter
                                             to={stat.to}
@@ -83,7 +83,7 @@ export default function Header() {
                                     </section>
 
                                     {i < stats.length - 1 && (
-                                        <Line variant="vertical" length={60} thickness={1} />
+                                        <Line variant="vertical" length={60} thickness={2} />
                                     )}
                                 </div>
                             ))}
